@@ -1,0 +1,74 @@
+<html>
+<head>
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width,initial-scale=1.0">
+   <title>Ben</title>
+</head>
+<body>
+   <header>
+      <h1>
+     Ben Tip Calc
+      </h1>
+   </header>
+   <article>
+  
+     
+          <label for="total">
+            Total
+            <input type="text" id="total";/>
+			 <label for="tip">
+            Tip%
+            <input type="text" id="tip";/>
+			 <label for="people">
+            # of People
+            <input type="text" id="people";/>
+          </label>
+      
+
+<p> Total</p>
+<p id="billTotal"  ></p>
+<p> Tip </p>
+<p id="tipTotal" ></p>
+<p> Amount Per Person</p>
+<p id="perPersonTotal" ></p>
+
+		 	 <input type="button" value="Submit" id="sButton" />
+   </article>
+   
+   <script>
+  
+   function insert() {
+ var t = +document.getElementById("total").value;
+
+ var tp = +document.getElementById("tip").value *0.01;
+ 
+ var p= +document.getElementById("people").value;
+
+var tip;
+var total;
+var people;
+
+if(!isNaN(t) && !isNaN(tp) && !isNaN(p)){
+   tip = t * tp;
+   total = t + tip;
+   people= total / p; 
+   
+document.getElementById("billTotal").innerHTML=": " + total;
+document.getElementById("tipTotal").innerHTML=": " + tip;
+document.getElementById("perPersonTotal").innerHTML=": " + people;
+ 
+ }
+ else{
+ document.getElementById("billTotal").innerHTML= " Enter Valid Number";
+ }
+   }
+   var submitButton = document.getElementById("sButton");
+   if(submitButton.addEventListener) {
+   submitButton.addEventListener("click", insert, 
+   false);
+   }else if (submitButton.attachEvent) {
+   submitButton.attachEvent("onclick",insert);
+   }
+   </script>
+</body>
+</html>
